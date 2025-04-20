@@ -85,5 +85,9 @@ with torch.no_grad():
     with ctx:
         for k in range(num_samples):
             y = model.generate(x, max_new_tokens, temperature=temperature, top_k=top_k)
-            print(decode(y[0].tolist()))
+            answer = decode(y[0].tolist())
+            # Stop if a period is found in the response
+            answer = answer.split('.')[0] + '.'  # This ensures the sentence stops at a period.
+            print(answer)
             print('---------------')
+

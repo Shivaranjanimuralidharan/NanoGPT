@@ -1,0 +1,5 @@
+ecall in classification?
+A: Recall is the ratio of correctly predicted positive observations to all actual positives. It shows how well the model finds all relevant cases.
+
+Q: What is the F1-score?
+A: The F1-score is the harmonic mean of precision and recall. It provides a balance between the two for evaluating classification performance.

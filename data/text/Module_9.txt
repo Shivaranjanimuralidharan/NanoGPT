@@ -1,0 +1,59 @@
+Q: What is supervised learning?
+A: Supervised learning is a type of machine learning where a model is trained on labeled data to learn the relationship between inputs and outputs.
+
+Q: What is unsupervised learning?
+A: Unsupervised learning is a machine learning technique where the model finds patterns and structures in data without labeled outputs.
+
+Q: What is reinforcement learning?
+A: Reinforcement learning is a type of machine learning where an agent learns to make decisions by performing actions and receiving rewards or penalties.
+
+Q: What is a neural network?
+A: A neural network is a computational model inspired by the human brain, consisting of layers of interconnected nodes that process data.
+
+Q: What is overfitting?
+A: Overfitting occurs when a model learns the training data too well, including noise, and fails to generalize to new, unseen data.
+
+Q: What is underfitting?
+A: Underfitting occurs when a model is too simple to capture the underlying pattern of the data, resulting in poor performance on both training and test sets.
+
+Q: What is regularization?
+A: Regularization is a technique used to reduce overfitting by adding a penalty term to the loss function.
+
+Q: What is gradient descent?
+A: Gradient descent is an optimization algorithm used to minimize the loss function by iteratively updating the model parameters in the direction of the steepest descent.
+
+Q: What is a loss function?
+A: A loss function measures how well a machine learning model's predictions match the actual target values. It guides the learning process.
+
+Q: What is a learning rate?
+A: The learning rate controls the size of the steps taken during gradient descent. It determines how fast or slow the model learns.
+
+Q: What is backpropagation?
+A: Backpropagation is an algorithm used in training neural networks by computing the gradient of the loss function with respect to each weight using the chain rule.
+
+Q: What is an epoch?
+A: An epoch is one complete pass through the entire training dataset during the training process.
+
+Q: What is a batch size?
+A: Batch size is the number of training examples used in one iteration of model training.
+
+Q: What is a convolutional neural network (CNN)?
+A: A CNN is a type of neural network designed to process structured grid data like images, using convolutional layers to extract spatial features.
+
+Q: What is a recurrent neural network (RNN)?
+A: An RNN is a type of neural network designed for sequential data, where outputs from previous steps are fed as inputs to the current step.
+
+Q: What is dropout?
+A: Dropout is a regularization technique where random neurons are ignored during training to prevent overfitting and improve generalization.
+
+Q: What is transfer learning?
+A: Transfer learning is a technique where a pre-trained model is reused on a new, related task, saving time and improving performance.
+
+Q: What is precision in classification?
+A: Precision is the ratio of correctly predicted positive observations to the total predicted positives. It measures accuracy for positive predictions.
+
+Q: What is recall in classification?
+A: Recall is the ratio of correctly predicted positive observations to all actual positives. It shows how well the model finds all relevant cases.
+
+Q: What is the F1-score?
+A: The F1-score is the harmonic mean of precision and recall. It provides a balance between the two for evaluating classification performance.

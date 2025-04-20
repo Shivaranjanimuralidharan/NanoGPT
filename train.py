@@ -15,6 +15,7 @@ $ torchrun --nproc_per_node=8 --nnodes=2 --node_rank=0 --master_addr=123.456.123
 $ torchrun --nproc_per_node=8 --nnodes=2 --node_rank=1 --master_addr=123.456.123.456 --master_port=1234 train.py
 (If your cluster does not have Infiniband interconnect prepend NCCL_IB_DISABLE=1)
 """
+import matplotlib.pyplot as plt
 
 import os
 import time
@@ -26,7 +27,9 @@ import numpy as np
 import torch
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.distributed import init_process_group, destroy_process_group
-
+train_losses = []
+val_losses = []
+iters = []
 from model import GPTConfig, GPT
 
 # -----------------------------------------------------------------------------
@@ -263,6 +266,10 @@ while True:
     if iter_num % eval_interval == 0 and master_process:
         losses = estimate_loss()
         print(f"step {iter_num}: train loss {losses['train']:.4f}, val loss {losses['val']:.4f}")
+        train_losses.append(losses['train'])
+        val_losses.append(losses['val'])
+        iters.append(iter_num)
+
         if wandb_log:
             wandb.log({
                 "iter": iter_num,
@@ -331,6 +338,17 @@ while True:
     # termination conditions
     if iter_num > max_iters:
         break
+if master_process:
+    plt.figure(figsize=(10, 6))
+    plt.plot(iters, train_losses, label='Train Loss')
+    plt.plot(iters, val_losses, label='Validation Loss')
+    plt.xlabel('Iterations')
+    plt.ylabel('Loss')
+    plt.title('Training and Validation Loss')
+    plt.legend()
+    plt.grid(True)
+    plt.savefig(os.path.join(out_dir, 'loss_plot.png'))  # save the plot
+    plt.show()  # also display
 
 if ddp:
     destroy_process_group()
